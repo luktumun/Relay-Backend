@@ -10,7 +10,7 @@ import nodemailer from 'nodemailer'
 const app = express()
 const port = process.env.PORT || 5000
 const jwtSecret = process.env.JWT_SECRET || 'replace-this-secret-in-production'
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173' }))
+app.use(cors())
 app.use(express.json())
 
 const userSchema = new mongoose.Schema({ name: { type: String, required: true }, email: { type: String, required: true, unique: true, lowercase: true }, passwordHash: { type: String, required: true } }, { timestamps: true })
